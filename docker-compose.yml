@@ -11,7 +11,7 @@ services:
   backend:
     build: backend
     working_dir: /home/docker/code/app/hue
-    command: bash -c "python3 manage.py migrate && supervisord -n"
+    command: bash -c " python3 manage.py collectstatic --noinput && python3 manage.py migrate && supervisord -n"
     volumes:
       - ./backend/app:/home/docker/code/app
     ports:
