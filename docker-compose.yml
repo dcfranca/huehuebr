@@ -1,4 +1,4 @@
-version: '2'
+version: '3.2'
 
 services:
   db:
@@ -13,7 +13,9 @@ services:
     working_dir: /home/docker/code/app/hue
     command: bash -c " python3 manage.py collectstatic --noinput && python3 manage.py migrate && supervisord -n"
     volumes:
-      - ./backend/app:/home/docker/code/app
+      - type: 'bind'
+        source: ./backend/app
+        target: /home/docker/code/app
     ports:
       - "80:80"
       - "8000:8000"

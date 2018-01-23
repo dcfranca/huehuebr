@@ -77,11 +77,11 @@ WSGI_APPLICATION = 'hue.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'huehuebr',
-        'USER': 'root',
-        'PASSWORD': 'NazareTedesco90',
-        'HOST': 'db',
-        'PORT': '3306'
+        'NAME': os.environ.get('RDS_DB_NAME','huehuebr'),
+        'USER': os.environ.get('RDS_USERNAME','root'),
+        'PASSWORD': os.environ.get('RDS_PASSWORD','NazareTedesco90'),
+        'HOST': os.environ.get('RDS_HOSTNAME','db'),
+        'PORT': os.environ.get('RDS_PORT','3306')
     }
 }
 
