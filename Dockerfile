@@ -7,8 +7,8 @@ RUN apt-get update \
         && rm -fr /var/tmp/*
 
 
-ADD ./app /home/docker/code/app
-ADD ./uwsgi.ini /home/docker/code/uwsgi.ini
+ADD ./backend/app /home/docker/code/app
+ADD ./backend/uwsgi.ini /home/docker/code/uwsgi.ini
 WORKDIR /home/docker/code/app
 RUN pip3 install -r requirements.txt
 
